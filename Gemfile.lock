@@ -1,0 +1,52 @@
+PATH
+  remote: .
+  specs:
+    cskit-strongs (1.0.0)
+      cskit (~> 1.0.0)
+      json
+
+PATH
+  remote: ~/workspace/cskit-biblekjv-rb
+  specs:
+    cskit-biblekjv (1.0.0)
+      cskit (~> 1.0.0)
+      json
+
+PATH
+  remote: ~/workspace/cskit-rb
+  specs:
+    cskit (1.0.0)
+      json
+      treetop
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    coderay (1.0.9)
+    json (1.8.0)
+    method_source (0.8.1)
+    nokogiri (1.5.6)
+    polyglot (0.3.3)
+    pry (0.9.12.2)
+      coderay (~> 1.0.5)
+      method_source (~> 0.8)
+      slop (~> 3.4)
+    pry-nav (0.2.3)
+      pry (~> 0.9.10)
+    rake (10.1.0)
+    slop (3.4.5)
+    treetop (1.4.14)
+      polyglot
+      polyglot (>= 0.3.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  cskit!
+  cskit-biblekjv!
+  cskit-strongs!
+  nokogiri
+  pry
+  pry-nav
+  rake
