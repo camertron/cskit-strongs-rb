@@ -2,7 +2,7 @@
 
 require 'cskit'
 require 'cskit/bible/kjv'
-require 'cskit-strongs/annotator'
+require 'cskit-strongs'
 
 CSKit.register_annotator({
   :type => :concordance,

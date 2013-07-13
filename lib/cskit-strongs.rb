@@ -11,6 +11,9 @@ module CSKitStrongs
     end
   end
 
+  autoload :Annotator,    "cskit-strongs/annotator"
+  autoload :LexiconEntry, "cskit-strongs/lexicon_entry"
+
   module Splitters
     autoload :ConcordanceSplitter, "cskit-strongs/splitters/concordance_splitter"
     autoload :LexiconSplitter,     "cskit-strongs/splitters/lexicon_splitter"
