@@ -1,0 +1,30 @@
+README for Textual Resources Used in this Project
+-------------------------------------------------
+
+There are four textual resources, all in the public domain, that are in use in this project:
+1) Strong's Concordance of the King James Bible (concordance.pdf)
+2) Strong's Greek Lexicon (greek_lexicon.xml)
+3) Strong's Hebrew Lexicon (hebrew_lexicon.xml)
+4) A mapping of Bible book name abbreviations used in Strong's concordance to full book names (book_map.json)
+
+Each file is described in greater detail below.
+
+concordance.pdf
+--------------------------------------------------
+This file was downloaded from www.indymissionary.com and contains a mapping between words in the KJV Bible and their corresponding Strong's numbers.  Each Strong's number is listed in either the Hebrew (old testament) or Greek (new testament) lexicon.
+
+concordance.txt
+--------------------------------------------------
+This file was generated from concordance.pdf and includes a few typo fixes.  It should be considered the correct concordance while concordance.pdf is the original and incorrect source.
+
+greek_lexicon.xml
+--------------------------------------------------
+This file is part of the github project at https://github.com/morphgnt/strongs-dictionary-xml, which was compiled from Ulrik Sandborg-Petersen's transcribed Greek lexicon.  Ulrik's work can also be perused on his website at http://ulrikp.org.
+
+hebrew_lexicon.xml
+--------------------------------------------------
+This file is part of the github project at https://github.com/openscriptures/HebrewLexicon and includes a number of additional entries not found in the original Strong's lexicon.
+
+book_map.json
+--------------------------------------------------
+I (Cameron Dutro) created this file as a counterpart to concordance.txt.  It contains a mapping between the abbreviations of Bible books used in the Indy Missionary concordance to full book names.  For example, "Jg" in concordance.txt is mapped to "Judges".

@@ -5,7 +5,7 @@ module CSKitStrongs
     module Utilities
 
       def strip_zeroes(str)
-        str.match(/0*(\d+)/).captures.first
+        str.match(/([hg]?)0*(\d+)/).captures.join
       end
 
     end

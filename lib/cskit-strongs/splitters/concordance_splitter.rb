@@ -26,8 +26,7 @@ module CSKitStrongs
             # replace strong's book name with something we understand
             citation_text = "#{book_map[citation_parts.first]}#{citation_parts.last}"
 
-            language = language_for_char(parts[0].chars.first.downcase)
-            number = strip_zeroes(parts[0][1..-1])
+            number = strip_zeroes(parts[0])
             text = parts[1]
             citation = parser.parse(citation_text).to_object
 
@@ -37,13 +36,6 @@ module CSKitStrongs
       end
 
       private
-
-      def language_for_char(char)
-        case char.downcase
-          when "h" then :hebrew
-          when "g" then :greek
-        end
-      end
 
       def book_map
         @book_map = JSON.parse(File.read(File.join(CSKitStrongs.vendor_dir, "book_map.json")))

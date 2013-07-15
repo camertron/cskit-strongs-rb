@@ -33,11 +33,12 @@ module CSKitStrongs
           regex = /#{Regexp.escape(parts.first)}(#{Regexp.escape(parts.last)})/
 
           if matches = text.match(regex)
-            start, finish = matches.offset(0)
-            lexicon_entry = lexicon_entry_for(verse_text["number"])
+            start, finish = matches.offset(1)
+            strongs_number = StrongsNumber.from_string(verse_text["number"])
+            lexicon_entry = lexicon_entry_for(strongs_number)
 
             if lexicon_entry
-              yielder.yield(Annotation.new(start, finish, lexicon_entry))
+              yielder.yield(CSKit::Annotation.new(start, finish - 1, lexicon_entry))
             end
           end
         end
@@ -48,7 +49,7 @@ module CSKitStrongs
 
     def lexicon_entry_for(strongs_number)
       batch_number = batch_number_for(strongs_number)
-      path = lexicon_path_for(batch_number)
+      path = lexicon_path_for(batch_number, strongs_number.language)
       lexicon = (lexicon_cache[batch_number] ||= JSON.parse(File.read(path)))
       LexiconEntry.from_hash(lexicon[strongs_number.to_s])
     rescue Errno::ENOENT  # couldn't load file
@@ -57,7 +58,7 @@ module CSKitStrongs
 
     def split_on_last_word(text)
       if idx = text.rindex(" ")
-        [text[0..(idx - 1)], text[idx..-1]]
+        [text[0..idx], text[(idx + 1)..-1]]
       else
         ["", text]
       end
@@ -74,12 +75,12 @@ module CSKitStrongs
       File.join(concordance_base_path, book, "#{chapter}.json")
     end
 
-    def lexicon_path_for(batch_number)
-      File.join(lexicon_base_path, "#{batch_number}.json")
+    def lexicon_path_for(batch_number, language)
+      File.join(lexicon_base_path, language, "#{batch_number}.json")
     end
 
     def batch_number_for(strongs_number)
-      (strongs_number.to_i - 1) / BATCH_SIZE
+      (strongs_number.number - 1) / BATCH_SIZE
     end
 
     def concordance_base_path
