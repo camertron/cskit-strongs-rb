@@ -7,15 +7,14 @@ module CSKitStrongs
 
     def annotate(reading, volume)
       annotated_reading = reading.to_annotated_reading
+      resource = concordance_resource_for(reading, volume)
 
-      reading.verse.start.upto(reading.verse.finish) do |verse_num|
-        resource = concordance_resource_for(reading, volume)
+      reading.texts.each_with_index do |text, index|
+        verse_num = reading.verse.start + index
         corresponding_verse_texts = resource[verse_num.to_s]
 
-        reading.texts.each_with_index do |text, index|
-          each_annotation_for(text, corresponding_verse_texts) do |annotation|
-            annotated_reading.add_annotation(index, annotation)
-          end
+        each_annotation_for(text, corresponding_verse_texts) do |annotation|
+          annotated_reading.add_annotation(index, annotation)
         end
       end
 

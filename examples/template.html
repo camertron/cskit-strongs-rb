@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>CSKit HTML Example</title>
+
+		<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+
+		<style>
+			.cskit-strongs-word {
+				text-decoration: underline;
+			}
+		</style>
+
+		<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+		<script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+
+		<script type="text/javascript">
+			$(document).ready(function() {
+			  $.each($("span.cskit-strongs-word"), function(index, elem) {
+			    $(elem).popover({
+			      title: "<strong>" + $(elem).data("unicode") + " (" + $(elem).data("translit") + ")</strong>",
+			      content: function() {
+			        return $(elem).data("definition").replace(
+			          /\{\{([hg]\d+)\}\}/, "$1"
+			        );
+			      },
+			      html: true,
+			      trigger: "hover",
+			      placement: "bottom"
+			    })
+			  });
+			});
+		</script>
+
+	</head>
+	<body>
+		<div style="margin: 20px">
+			<div class="well">
+				{{body}}
+			</div>
+		</div>
+	</body>
+</html>

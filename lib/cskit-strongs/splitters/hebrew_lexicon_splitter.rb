@@ -23,6 +23,8 @@ module CSKitStrongs
             merge(definition_for(entry))
 
           number = strip_zeroes(entry.attributes["id"].value.downcase)
+          attrs.merge!(:strongs_number => number)
+
           yield number, attrs
         end
       end

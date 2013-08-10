@@ -17,6 +17,14 @@ module CSKitStrongs
     def to_s
       "#{language[0...1]}#{number}"
     end
+
+    def greek?
+      language.downcase == "greek"
+    end
+
+    def hebrew?
+      language.downcase == "hebrew"
+    end
   end
 
 end

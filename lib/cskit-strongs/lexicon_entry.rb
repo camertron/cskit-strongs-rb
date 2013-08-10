@@ -2,7 +2,7 @@
 
 module CSKitStrongs
 
-  LEXICON_ATTRS = [:pronunciation, :unicode, :translit, :definition]
+  LEXICON_ATTRS = [:pronunciation, :unicode, :translit, :definition, :strongs_number]
 
   LexiconEntry = Struct.new(*LEXICON_ATTRS) do
     def self.from_hash(hash = {})

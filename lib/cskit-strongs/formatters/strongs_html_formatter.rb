@@ -6,7 +6,7 @@ module CSKitStrongs
 
       def format_annotation(annotation, text)
         # definition = format_number_references(annotation.data.definition)
-        "<span class='cskit-strongs-word' %{data_attrs} data-defninition='%{definition}'>%{text}</span>" % {
+        "<span class='cskit-strongs-word' %{data_attrs} data-definition='%{definition}'>%{text}</span>" % {
           :text => text,
           :definition => "[#{annotation.data.unicode}] #{annotation.data.definition}",
           :data_attrs => [:pronunciation, :translit, :unicode].map do |data_attr|

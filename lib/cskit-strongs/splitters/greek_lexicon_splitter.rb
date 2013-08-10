@@ -24,8 +24,10 @@ module CSKitStrongs
             merge(lang_attrs_for(entry, LANG)).
             merge(definition_for(entry))
 
-          number = strip_zeroes(entry.attributes["strongs"].value)
-          yield "g#{number}", attrs
+          number = "g#{strip_zeroes(entry.attributes["strongs"].value)}"
+          attrs.merge!(:strongs_number => number)
+
+          yield number, attrs
         end
       end
 
