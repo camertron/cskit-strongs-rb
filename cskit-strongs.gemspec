@@ -22,6 +22,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'nokogiri'
 
   s.require_path = 'lib'
-
   s.files = Dir["{lib,spec,resources}/**/*", "Gemfile", "History.txt", "LICENSE", "README.md", "Rakefile", "cskit-strongs.gemspec"]
 end
