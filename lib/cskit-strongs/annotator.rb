@@ -21,6 +21,19 @@ module CSKitStrongs
       annotated_reading
     end
 
+    def get_formatter(type = :plain_text)
+      case type
+        when :plain_text
+          CSKitStrongs::Formatters::StrongsPlainTextFormatter
+        when :html
+          CSKitStrongs::Formatters::StrongsHtmlFormatter
+      end
+    end
+
+    def available_formatters
+      [:plain_text, :html]
+    end
+
     private
 
     BATCH_SIZE = 100
