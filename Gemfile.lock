@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    cskit-strongs (1.0.0)
+    cskit-strongs (1.0.1)
       cskit (~> 1.0.0)
       json
 

@@ -82,7 +82,7 @@ module CSKitStrongs
     end
 
     def concordance_path_for(reading, volume)
-      book = volume.unabbreviate_book_name(reading.citation.book)
+      book = volume.unabbreviate_book_name(reading.citation.book).downcase
       chapter = reading.chapter.chapter_number
       File.join(concordance_base_path, book, "#{chapter}.json")
     end
