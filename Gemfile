@@ -1,8 +1,12 @@
-source "http://rubygems.org"
+source 'http://rubygems.org'
 
 gemspec
 
+gem 'cskit', path: '~/workspace/cskit-rb'
+
 group :development do
-  gem "pry"
-  gem "pry-nav"
+  gem 'nokogiri'
+  gem 'pry'
+  gem 'pry-byebug'
+  gem 'rake'
 end
