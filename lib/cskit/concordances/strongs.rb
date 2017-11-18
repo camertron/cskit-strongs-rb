@@ -10,6 +10,6 @@ CSKit.register_annotator({
   :name => "Strong's Exhaustive Concordance of the Bible",
   :author => "James Strong",
   :language => "English",
-  :volumes => [CSKitBibleKJV::Volume],
+  :volumes => [CSKit::Bible::Kjv::Volume],
   :annotator => CSKitStrongs::Annotator
 })

@@ -1,3 +1,8 @@
+== 1.0.2
+
+* Fix bad reference to KJV Bible volume constant.
+* Depend on cskit-biblekjv in gemspec.
+
 == 1.0.1
 
 * Adding the get_formatter and available_formatter methods to make it easy to get the right annotation formatter.
